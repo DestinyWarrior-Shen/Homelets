@@ -49,8 +49,6 @@ public class Login extends Fragment
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuthListener();
 
-        
-
         mEmailView = (EditText) view.findViewById(R.id.email);
         mPasswordView = (EditText) view.findViewById(R.id.password);
 //        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
