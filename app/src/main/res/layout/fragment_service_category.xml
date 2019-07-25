@@ -1,0 +1,239 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.homelessservices.ServiceCategory">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_live"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="3dp"
+                android:background="?attr/colorPrimary"
+                android:clickable="true"
+                android:fontFamily="Helvetical Neue Light"
+                android:paddingTop="20dp"
+                android:text="Accommodation"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="35sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/tv_cloth_blanket"
+                    android:layout_width="0dp"
+                    android:layout_height="95dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="8dp"
+                    android:background="?attr/colorPrimary"
+                    android:clickable="true"
+                    android:fontFamily="sans-serif"
+                    android:paddingTop="20dp"
+                    android:text="Clothes/\nBlanket"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/tv_drug_alcohol"
+                    android:layout_width="0dp"
+                    android:layout_height="95dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="?attr/colorPrimary"
+                    android:clickable="true"
+                    android:fontFamily="sans-serif"
+                    android:paddingTop="20dp"
+                    android:text="Drug/\nAlcohol"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:id="@+id/tv_needle_exchange"
+                    android:layout_width="0dp"
+                    android:layout_height="95dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="?attr/colorPrimary"
+                    android:clickable="true"
+                    android:fontFamily="sans-serif"
+                    android:paddingTop="20dp"
+                    android:text="Needle\nExchange"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_shower_laundry"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="8dp"
+                android:background="?attr/colorPrimary"
+                android:clickable="true"
+                android:fontFamily="sans-serif"
+                android:paddingTop="20dp"
+                android:text="Shower / Laundry"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/tv_legal_financial"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="8dp"
+                android:background="?attr/colorPrimary"
+                android:clickable="true"
+                android:fontFamily="sans-serif"
+                android:paddingTop="20dp"
+                android:text="Legal / Financial"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="35sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/tv_counsel_psychiatric"
+                    android:layout_width="0dp"
+                    android:layout_height="95dp"
+                    android:layout_marginLeft="0dp"
+                    android:background="?attr/colorPrimary"
+                    android:clickable="true"
+                    android:fontFamily="sans-serif"
+                    android:paddingTop="20dp"
+                    android:text="Counselling/ \nPsychiatric"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:layout_weight="1"/>
+
+
+                <TextView
+                    android:id="@+id/tv_health_pharmacy"
+                    android:layout_width="0dp"
+                    android:layout_height="95dp"
+                    android:layout_marginLeft="8dp"
+                    android:background="?attr/colorPrimary"
+                    android:clickable="true"
+                    android:fontFamily="sans-serif"
+                    android:paddingTop="20dp"
+                    android:text="Health/\nPharmacy"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/tv_employment"
+                    android:layout_width="0dp"
+                    android:layout_height="95dp"
+                    android:layout_marginLeft="0dp"
+                    android:background="?attr/colorPrimary"
+                    android:clickable="true"
+                    android:fontFamily="sans-serif"
+                    android:paddingTop="20dp"
+                    android:text="Employment\nService"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/tv_hospital_emergency"
+                    android:layout_width="0dp"
+                    android:layout_height="95dp"
+                    android:layout_marginLeft="8dp"
+                    android:background="?attr/colorPrimary"
+                    android:clickable="true"
+                    android:fontFamily="sans-serif"
+                    android:paddingTop="20dp"
+                    android:text="Hospital/\nEmergency"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_help_phone"
+                    android:layout_width="190dp"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="1dp"
+                    android:background="?attr/colorPrimary"
+                    android:clickable="true"
+                    android:fontFamily="sans-serif"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="20dp"
+                    android:text="  Helpful Phone"
+                    android:textAlignment="inherit"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_help_website"
+                    android:layout_width="190dp"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginTop="1dp"
+                    android:background="?attr/colorPrimary"
+                    android:clickable="true"
+                    android:fontFamily="sans-serif"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="20dp"
+                    android:text=" Helpful  Website"
+                    android:textAlignment="inherit"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

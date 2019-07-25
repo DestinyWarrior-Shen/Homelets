@@ -1,0 +1,102 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Profile">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/head_image"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/profile"
+                android:clickable="false"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/current_user"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="000@000.com"
+                        android:textStyle="bold"
+                        android:editable="true"/>
+
+                    <ImageView
+                        android:id="@+id/edit_name"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/edit"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/num_review"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="2 reviews" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="350dp"
+                android:layout_height="5px"
+                android:layout_marginTop="8dp"
+                android:background="#e1e1e1" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="10dp"
+            android:text="All your reviews (Long click can delete comment)"
+            android:textAlignment="center" />
+
+        <ListView
+            android:id="@+id/review_listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:dividerHeight="2dp"
+            android:divider="@null"
+            android:footerDividersEnabled="false">
+
+        </ListView>
+
+
+    </LinearLayout>
+
+</FrameLayout>

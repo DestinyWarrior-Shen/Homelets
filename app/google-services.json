@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "761324459576",
+    "firebase_url": "https://homelessservices-43603.firebaseio.com",
+    "project_id": "homelessservices-43603",
+    "storage_bucket": "homelessservices-43603.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:761324459576:android:a23265d973b8a6c4",
+        "android_client_info": {
+          "package_name": "com.example.homelessservices"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "761324459576-hg20osrl007e4ag0i81m8r0cvtrculk2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.homelessservices",
+            "certificate_hash": "c61c2f66d9aeb0f55fd9505eac22cff15a1dbc92"
+          }
+        },
+        {
+          "client_id": "761324459576-ehua7d2pth9d9de2qp90to69n2m1cpi8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAE1EvpGdvlM6iA0l_nNTdHACAGVpM8pNg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "761324459576-ehua7d2pth9d9de2qp90to69n2m1cpi8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

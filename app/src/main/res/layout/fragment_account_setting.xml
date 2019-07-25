@@ -1,0 +1,154 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.homelessservices.AccountSetting">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/layout_change_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clickable="false">
+
+            <LinearLayout
+                android:layout_width="355dp"
+                android:layout_height="56dp"
+                android:clickable="false"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="10dp"
+                    android:clickable="false"
+                    android:text="Change Password"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_change_password"
+                    android:layout_width="380dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="3dp"
+                    android:clickable="false"
+                    android:text="Click this will sent you an email for changing password"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical"
+                android:clickable="false">
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:textAlignment="center"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="2dp">
+
+            <View
+                android:layout_width="395dp"
+                android:layout_height="5px"
+                android:background="#e1e1e1"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/email_change"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/prompt_email"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused" />
+
+            <Button
+                android:id="@+id/btn_finish"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:text="OK"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="395dp"
+                    android:layout_height="5px"
+                    android:layout_marginTop="2dp"
+                    android:background="#e1e1e1" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_delete_account"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:layout_marginTop="2dp">
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="10dp"
+                android:text="Delete Account"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:clickable="false"/>
+
+            <TextView
+                android:id="@+id/tv_website"
+                android:layout_width="300dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="3dp"
+                android:clickable="false"
+                android:text="Click this will delete your account"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

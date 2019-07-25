@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="person_range">
+        <item>Every One</item>
+        <item>Limited Only</item>
+    </string-array>
+
+    <string-array name="search_condition">
+        <item>All</item>
+        <item>Name</item>
+        <item>Suburb</item>
+        <item>Who</item>
+        <item>Cost</item>
+    </string-array>
+
+    <string-array name="sub_range">
+        <item>Please select a category</item>
+    </string-array>
+
+    <string-array name="Days">
+        <item>All Days</item>
+        <item>Today</item>
+        <item>Select Days</item>
+    </string-array>
+
+    <array name="demo_colors">
+        <item>@color/md_red_500</item>
+        <item>@color/md_pink_500</item>
+        <item>@color/md_deep_orange_accent_500</item>
+        <item>@color/md_orange_accent_500</item>
+        <item>@color/md_orange_500</item>
+        <item>@color/md_yellow_500</item>
+        <item>@color/md_deep_purple_500</item>
+        <item>@color/md_purple_500</item>
+        <item>@color/md_light_blue_500</item>
+        <item>@color/md_green_accent_500</item>
+        <item>@color/md_teal_accent_500</item>
+        <item>@color/md_light_green_500</item>
+        <item>@color/md_black_500</item>
+        <item>@color/colorPrimary</item>
+        <item>@color/md_brown_500</item>
+        <item>@color/md_grey_500</item>
+    </array>
+</resources>

@@ -1,0 +1,141 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="AppThemeRed" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/md_red_500</item>
+        <item name="colorPrimaryDark">@color/md_red_500</item>
+        <item name="colorAccent">@color/md_red_500</item>
+    </style>
+
+    <style name="AppThemePink" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/md_pink_500</item>
+        <item name="colorPrimaryDark">@color/md_pink_500</item>
+        <item name="colorAccent">@color/md_pink_500</item>
+    </style>
+
+    <style name="AppThemeDeepOrangeAccent" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/md_deep_orange_accent_500</item>
+        <item name="colorPrimaryDark">@color/md_deep_orange_accent_500</item>
+        <item name="colorAccent">@color/md_deep_orange_accent_500</item>
+    </style>
+
+    <style name="AppThemeOrangeAccent" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/md_orange_accent_500</item>
+        <item name="colorPrimaryDark">@color/md_orange_accent_500</item>
+        <item name="colorAccent">@color/md_orange_accent_500</item>
+    </style>
+
+    <style name="AppThemeOrange" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/md_orange_500</item>
+        <item name="colorPrimaryDark">@color/md_orange_500</item>
+        <item name="colorAccent">@color/md_orange_500</item>
+    </style>
+
+    <style name="AppThemeYellow" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/md_yellow_500</item>
+        <item name="colorPrimaryDark">@color/md_yellow_500</item>
+        <item name="colorAccent">@color/md_yellow_500</item>
+    </style>
+
+    <style name="AppThemeDeepPurple" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/md_deep_purple_500</item>
+        <item name="colorPrimaryDark">@color/md_deep_purple_500</item>
+        <item name="colorAccent">@color/md_deep_purple_500</item>
+    </style>
+
+    <style name="AppThemePurple" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/md_purple_500</item>
+        <item name="colorPrimaryDark">@color/md_purple_500</item>
+        <item name="colorAccent">@color/md_purple_500</item>
+    </style>
+
+    <style name="AppThemeLightBlue" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/md_light_blue_500</item>
+        <item name="colorPrimaryDark">@color/md_light_blue_500</item>
+        <item name="colorAccent">@color/md_light_blue_500</item>
+    </style>
+
+    <style name="AppThemeGreenAccent" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/md_green_accent_500</item>
+        <item name="colorPrimaryDark">@color/md_green_accent_500</item>
+        <item name="colorAccent">@color/md_green_accent_500</item>
+    </style>
+
+    <style name="AppThemeTealAccent" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/md_teal_accent_500</item>
+        <item name="colorPrimaryDark">@color/md_teal_accent_500</item>
+        <item name="colorAccent">@color/md_teal_accent_500</item>
+    </style>
+
+    <style name="AppThemeLightGreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/md_light_green_500</item>
+        <item name="colorPrimaryDark">@color/md_light_green_500</item>
+        <item name="colorAccent">@color/md_light_green_500</item>
+    </style>
+
+    <style name="AppThemeBlack" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/md_black_500</item>
+        <item name="colorPrimaryDark">@color/md_black_500</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppThemeGray" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/md_grey_500</item>
+        <item name="colorPrimaryDark">@color/md_grey_500</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppThemeBrown" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/md_brown_500</item>
+        <item name="colorPrimaryDark">@color/md_brown_500</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="FontSize10">
+        <item name="android:textSize">10sp</item>
+    </style>
+    <style name="FontSize14">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="FontSize18">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="FontSize22">
+        <item name="android:textSize">22sp</item>
+    </style>
+    <style name="FontSize26">
+        <item name="android:textSize">26sp</item>
+    </style>
+</resources>

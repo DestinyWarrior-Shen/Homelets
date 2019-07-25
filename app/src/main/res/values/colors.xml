@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#354758</color>
+    <color name="colorPrimaryDark">#5d617b</color>
+    <color name="colorAccent">#ed4499</color>
+    <color name="colorSpinner">#e9e9e9</color>
+    <color name="colorSelect">#7f5cb8</color>
+    <color name="colorSelectItem">#d2d2d2</color>
+    <color name="colorOriginal">#ffffff</color>
+    <color name="colorPopup">#dfdfdf</color>
+
+
+    <color name="md_red_500">#ef5350</color>
+    <color name="md_pink_500">#ec407a</color>
+    <color name="md_deep_orange_accent_500">#ff3d00</color>
+    <color name="md_orange_accent_500">#ffab40</color>
+    <color name="md_orange_500">#ff7043</color>
+    <color name="md_yellow_500">#ffee58</color>
+    <color name="md_deep_purple_500">#7e57c2</color>
+    <color name="md_purple_500">#ba68c8</color>
+    <color name="md_light_blue_500">#03a9f4</color>
+    <color name="md_green_accent_500">#00e676</color>
+    <color name="md_teal_accent_500">#1de9b6</color>
+    <color name="md_light_green_500">#aed581</color>
+    <color name="md_black_500">#000000</color>
+    <color name="md_brown_500">#bcaaa4</color>
+    <color name="md_grey_500">#bdbdbd</color>
+    <color name="md_white">#ffffff</color>
+</resources>

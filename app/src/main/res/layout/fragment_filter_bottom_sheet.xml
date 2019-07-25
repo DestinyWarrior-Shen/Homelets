@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:background="@color/colorPrimary"
+        android:text="FILTERS"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="28sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Category "
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/spinner_category"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/droplist_down"
+            android:popupBackground="@drawable/droplist_focus"/>
+
+
+        <LinearLayout
+            android:id="@+id/select_sub_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Sub-Category "
+                android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/spinner_sub"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/droplist_down"
+                android:popupBackground="@drawable/droplist_focus">
+
+            </Spinner>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5px"
+                android:background="#e1e1e1"
+                android:layout_marginTop="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/abc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:text="Days "
+                android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="20dp">
+
+            <CheckBox
+                android:id="@+id/cb_mon"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Monday"
+                android:textSize="22sp" />
+
+            <CheckBox
+                android:id="@+id/cb_tue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="Tuesday"
+                android:textSize="22sp"
+                android:layout_gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="20dp">
+
+            <CheckBox
+                android:id="@+id/cb_wed"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Wednesday"
+                android:textSize="22sp"
+                android:layout_gravity="center_vertical"/>
+
+            <CheckBox
+                android:id="@+id/cb_thu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="Thursday"
+                android:textSize="22sp"
+                android:layout_gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="20dp">
+
+            <CheckBox
+                android:id="@+id/cb_fri"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Friday"
+                android:textSize="22sp"
+                android:layout_gravity="center_vertical"/>
+
+            <CheckBox
+                android:id="@+id/cb_sat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="Saturday"
+                android:textSize="22sp"
+                android:layout_gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="20dp">
+            <CheckBox
+                android:id="@+id/cb_sun"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Sunday"
+                android:textSize="22sp" />
+
+            <CheckBox
+                android:id="@+id/cb_ph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="Public Holiday"
+                android:textSize="22sp"
+                android:layout_gravity="center_vertical"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_ok"
+                android:layout_width="346dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="30dp"
+                android:background="@color/colorPrimary"
+                android:text="APPLY"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="30dp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

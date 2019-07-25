@@ -1,0 +1,137 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.homelessservices.Filter_Toilet">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Filter:"
+            android:textSize="24sp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"/>
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <RadioButton
+                android:id="@+id/radio_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No Filter"
+                android:textSize="22sp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:text="Filter by type"
+                android:textSize="22sp" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/select_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:animateLayoutChanges="true"
+            android:layout_marginTop="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+                <CheckBox
+                    android:id="@+id/cb_m"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:text="Male"
+                    android:textSize="22sp" />
+
+                <CheckBox
+                    android:id="@+id/cb_fm"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="Female"
+                    android:textSize="22sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+                <CheckBox
+                    android:id="@+id/cb_wh"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:text="Wheelchair"
+                    android:textSize="22sp" />
+
+                <CheckBox
+                    android:id="@+id/cb_ba"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="Baby Facility"
+                    android:textSize="22sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_nearest"
+                android:layout_width="346dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="30dp"
+                android:background="@color/colorPrimary"
+                android:text="Nearest"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/btn_okok"
+                android:layout_width="346dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="30dp"
+                android:background="@color/colorPrimary"
+                android:text="Apply and View"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</FrameLayout>
