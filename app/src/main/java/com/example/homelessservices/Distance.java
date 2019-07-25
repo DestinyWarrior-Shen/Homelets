@@ -23,4 +23,10 @@ public class Distance
         s = Math.round(s * 10000) / 10000;
         return s;
     }
+
+    public void displayMessage(){
+        System.out.println("Good Enough");
+    }
 }
+
+
