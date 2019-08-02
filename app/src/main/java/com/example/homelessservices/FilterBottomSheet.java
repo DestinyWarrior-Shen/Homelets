@@ -4,13 +4,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +14,14 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -47,31 +48,6 @@ public class FilterBottomSheet extends BottomSheetDialogFragment {
     private String categorySelected, subCategorySelected;
     private View subCategoryView;
     private int today = -1;
-
-    public void registerUI(View view) {
-        categorySpinner = (Spinner) view.findViewById(R.id.spinner_category);
-        subCategorySpinner = (Spinner) view.findViewById(R.id.spinner_sub);
-        apply = (Button) view.findViewById(R.id.btn_ok);
-        subCategoryView = view.findViewById(R.id.select_sub_category);
-        allDaysCheckBoxList = new ArrayList<>();
-
-        sun = (CheckBox) view.findViewById(R.id.cb_sun);
-        allDaysCheckBoxList.add(sun);
-        mon = (CheckBox) view.findViewById(R.id.cb_mon);
-        allDaysCheckBoxList.add(mon);
-        tue = (CheckBox) view.findViewById(R.id.cb_tue);
-        allDaysCheckBoxList.add(tue);
-        wed = (CheckBox) view.findViewById(R.id.cb_wed);
-        allDaysCheckBoxList.add(wed);
-        thu = (CheckBox) view.findViewById(R.id.cb_thu);
-        allDaysCheckBoxList.add(thu);
-        fri = (CheckBox) view.findViewById(R.id.cb_fri);
-        allDaysCheckBoxList.add(fri);
-        sat = (CheckBox) view.findViewById(R.id.cb_sat);
-        allDaysCheckBoxList.add(sat);
-        ph = (CheckBox) view.findViewById(R.id.cb_ph);
-        allDaysCheckBoxList.add(ph);
-    }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -122,6 +98,31 @@ public class FilterBottomSheet extends BottomSheetDialogFragment {
         behavior.setPeekHeight(2500);
         behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
         return dialog;
+    }
+
+    public void registerUI(View view) {
+        categorySpinner = (Spinner) view.findViewById(R.id.spinner_category);
+        subCategorySpinner = (Spinner) view.findViewById(R.id.spinner_sub);
+        apply = (Button) view.findViewById(R.id.btn_ok);
+        subCategoryView = view.findViewById(R.id.select_sub_category);
+        allDaysCheckBoxList = new ArrayList<>();
+
+        sun = (CheckBox) view.findViewById(R.id.cb_sun);
+        allDaysCheckBoxList.add(sun);
+        mon = (CheckBox) view.findViewById(R.id.cb_mon);
+        allDaysCheckBoxList.add(mon);
+        tue = (CheckBox) view.findViewById(R.id.cb_tue);
+        allDaysCheckBoxList.add(tue);
+        wed = (CheckBox) view.findViewById(R.id.cb_wed);
+        allDaysCheckBoxList.add(wed);
+        thu = (CheckBox) view.findViewById(R.id.cb_thu);
+        allDaysCheckBoxList.add(thu);
+        fri = (CheckBox) view.findViewById(R.id.cb_fri);
+        allDaysCheckBoxList.add(fri);
+        sat = (CheckBox) view.findViewById(R.id.cb_sat);
+        allDaysCheckBoxList.add(sat);
+        ph = (CheckBox) view.findViewById(R.id.cb_ph);
+        allDaysCheckBoxList.add(ph);
     }
 
 
