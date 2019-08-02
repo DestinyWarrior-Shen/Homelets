@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
@@ -32,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/droplist_down"
             android:popupBackground="@drawable/droplist_focus"/>
 
@@ -48,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:text="Sub-Category "
                 android:textAppearance="@style/TextAppearance.AppCompat.Button"
                 android:textSize="20sp" />
@@ -59,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/droplist_down"
                 android:popupBackground="@drawable/droplist_focus">
 
@@ -85,7 +87,7 @@
             android:id="@+id/abc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:visibility="visible">
 
             <TextView
@@ -93,9 +95,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="15dp"
-                android:text="Days "
+                android:text="Days"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button"
                 android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:text="* is today"
+                android:textSize="10sp" />
 
         </LinearLayout>
 
@@ -103,13 +113,13 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="20dp">
 
             <CheckBox
                 android:id="@+id/cb_mon"
-                android:layout_width="150dp"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="Monday"
@@ -119,7 +129,7 @@
                 android:id="@+id/cb_tue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:text="Tuesday"
                 android:textSize="22sp"
                 android:layout_gravity="center_vertical"/>
@@ -130,13 +140,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="20dp">
 
             <CheckBox
                 android:id="@+id/cb_wed"
-                android:layout_width="150dp"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:text="Wednesday"
                 android:textSize="22sp"
@@ -146,7 +156,7 @@
                 android:id="@+id/cb_thu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:text="Thursday"
                 android:textSize="22sp"
                 android:layout_gravity="center_vertical"/>
@@ -157,13 +167,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="20dp">
 
             <CheckBox
                 android:id="@+id/cb_fri"
-                android:layout_width="150dp"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:text="Friday"
                 android:textSize="22sp"
@@ -173,7 +183,7 @@
                 android:id="@+id/cb_sat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:text="Saturday"
                 android:textSize="22sp"
                 android:layout_gravity="center_vertical"/>
@@ -184,12 +194,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="20dp">
             <CheckBox
                 android:id="@+id/cb_sun"
-                android:layout_width="150dp"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="Sunday"
@@ -199,8 +209,8 @@
                 android:id="@+id/cb_ph"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="Public Holiday"
+                android:layout_marginLeft="10dp"
+                android:text="Holiday"
                 android:textSize="22sp"
                 android:layout_gravity="center_vertical"/>
 
@@ -217,7 +227,7 @@
                 android:id="@+id/btn_ok"
                 android:layout_width="346dp"
                 android:layout_height="45dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:background="@color/colorPrimary"
                 android:text="APPLY"
                 android:textColor="@android:color/white"
