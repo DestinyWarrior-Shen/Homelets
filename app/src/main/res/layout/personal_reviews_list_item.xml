@@ -21,27 +21,17 @@
         card_view:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_weight="0.96"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:id="@+id/date_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:text="Date and Time"
-                android:textColor="@color/colorSelectItem"
-                android:textStyle="bold" />
+            android:layout_marginTop="8dp">
 
             <TextView
                 android:id="@+id/place_name"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
-                android:layout_marginTop="3dp"
                 android:text="Place Name"
                 android:textStyle="bold" />
 
@@ -78,8 +68,20 @@
                 android:layout_marginLeft="12dp"/>
 
             <TextView
+                android:id="@+id/date_time"
                 android:layout_width="match_parent"
-                android:layout_height="16dp" />
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:text="Date and Time"
+                android:textColor="@color/colorSelectItem"
+                android:textStyle="bold"
+                android:textSize="9dp"
+                android:textAlignment="viewEnd"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="5dp" />
 
 
         </LinearLayout>

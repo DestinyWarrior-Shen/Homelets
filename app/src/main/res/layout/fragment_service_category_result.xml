@@ -20,7 +20,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.3"
+                android:layout_weight="1"
                 android:padding="6dp"
                 android:text="Order by:"
                 android:textAlignment="center"
@@ -28,9 +28,9 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_alphabet"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.8"
+                android:layout_weight="1"
                 card_view:cardBackgroundColor="@color/white">
 
                 <TextView
@@ -47,9 +47,9 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_distance"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.8"
+                android:layout_weight="1"
                 card_view:cardBackgroundColor="@color/white"
                 card_view:cardCornerRadius="5dp">
 

@@ -110,20 +110,32 @@ public class Favourite extends Fragment implements View.OnClickListener
             case R.id.tv_time:
                 resetTextViewColor();
                 time.setBackgroundColor(Color.LTGRAY);
+                alphabet.setBackgroundResource(R.drawable.shape);
+                distance.setBackgroundResource(R.drawable.shape);
                 customAdapter = new CustomAdapter(favouritePlaces);
                 listview.setAdapter(customAdapter);
                 break;
             case R.id.tv_alphabet:
                 resetTextViewColor();
                 alphabet.setBackgroundColor(Color.LTGRAY);
+                time.setBackgroundResource(R.drawable.shape);
+                distance.setBackgroundResource(R.drawable.shape);
                 filterByAlphabet();
                 break;
             case R.id.tv_distance:
                 resetTextViewColor();
                 distance.setBackgroundColor(Color.LTGRAY);
+                time.setBackgroundResource(R.drawable.shape);
+                alphabet.setBackgroundResource(R.drawable.shape);
                 filterByDistance();
                 break;
         }
+    }
+
+    private void resetTextViewColor() {
+        time.setBackgroundColor(Color.TRANSPARENT);
+        alphabet.setBackgroundColor(Color.TRANSPARENT);
+        distance.setBackgroundColor(Color.TRANSPARENT);
     }
 
     private void filterByDistance() {
@@ -164,12 +176,6 @@ public class Favourite extends Fragment implements View.OnClickListener
 
         customAdapter = new CustomAdapter(alphabetFoodPlaces);
         listview.setAdapter(customAdapter);
-    }
-
-    private void resetTextViewColor() {
-        time.setBackgroundColor(Color.TRANSPARENT);
-        alphabet.setBackgroundColor(Color.TRANSPARENT);
-        distance.setBackgroundColor(Color.TRANSPARENT);
     }
 
     private class CustomAdapter extends BaseAdapter {
