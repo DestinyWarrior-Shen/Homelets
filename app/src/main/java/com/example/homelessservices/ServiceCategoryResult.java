@@ -46,7 +46,6 @@ public class ServiceCategoryResult extends Fragment implements View.OnClickListe
     private TextView alphabet, distance;
     private ArrayList<Service> distanceServicePlaces;
     private ArrayList<Service> alphabetServicePlaces;
-    private CardView cv_alphabet, cv_distance;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,8 +60,7 @@ public class ServiceCategoryResult extends Fragment implements View.OnClickListe
         alphabet = (TextView) view.findViewById(R.id.tv_alphabet);
         distance = (TextView) view.findViewById(R.id.tv_distance);
         listView = (ListView) view.findViewById(R.id.listView);
-        cv_distance = (CardView) view.findViewById(R.id.cv_distance);
-        cv_alphabet = (CardView) view.findViewById(R.id.cv_alphabet);
+
         getCurrentLatLng();
 
         if (status)
@@ -123,12 +121,8 @@ public class ServiceCategoryResult extends Fragment implements View.OnClickListe
         switch (v.getId())
         {
             case R.id.tv_alphabet:
-               // resetTextViewColor();
-                cv_alphabet.setBackgroundColor(Color.LTGRAY);
-                cv_distance.setBackgroundColor(Color.TRANSPARENT);
-                alphabet.setBackgroundColor(Color.TRANSPARENT);
-                distance.setBackgroundResource(R.drawable.shape);
-                //alphabet.setBackgroundResource(R.drawable.shape);
+                alphabet.setBackgroundColor(Color.LTGRAY);
+                //distance.setBackgroundResource(R.drawable.shape);
                 if (mMenu.findItem(R.id.today).getTitle().equals("Today"))
                 {
                     filterByAlphabet(resultServices);
@@ -137,12 +131,9 @@ public class ServiceCategoryResult extends Fragment implements View.OnClickListe
                     filterByAlphabet(todayList);
                 break;
             case R.id.tv_distance:
-               // resetTextViewColor();
-                cv_distance.setBackgroundColor(Color.LTGRAY);
-                alphabet.setBackgroundResource(R.drawable.shape);
-                cv_alphabet.setBackgroundColor(Color.TRANSPARENT);
-                distance.setBackgroundColor(Color.TRANSPARENT);
-                //distance.setBackgroundResource(R.drawable.shape);
+                distance.setBackgroundColor(Color.LTGRAY);
+                //alphabet.setBackgroundResource(R.drawable.shape);
+
                 if (mMenu.findItem(R.id.today).getTitle().equals("Today"))
                 {
                     filterByDistance(resultServices);
@@ -152,6 +143,7 @@ public class ServiceCategoryResult extends Fragment implements View.OnClickListe
                 break;
         }
     }
+
 
     private void filterByDistance(ArrayList<Service> list) {
         distanceServicePlaces = new ArrayList<>(list);
@@ -192,13 +184,6 @@ public class ServiceCategoryResult extends Fragment implements View.OnClickListe
 
         adapter = new MyAdapter(alphabetServicePlaces);
         listView.setAdapter(adapter);
-    }
-
-    private void resetTextViewColor() {
-        cv_distance.setBackgroundColor(Color.TRANSPARENT);
-        alphabet.setBackgroundResource(R.drawable.shape);
-        cv_alphabet.setBackgroundColor(Color.TRANSPARENT);
-        distance.setBackgroundResource(R.drawable.shape);
     }
 
     @Override
