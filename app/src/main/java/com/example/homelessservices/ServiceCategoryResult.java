@@ -6,12 +6,6 @@ import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.cardview.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,6 +17,12 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -122,7 +122,8 @@ public class ServiceCategoryResult extends Fragment implements View.OnClickListe
         {
             case R.id.tv_alphabet:
                 alphabet.setBackgroundColor(Color.LTGRAY);
-                //distance.setBackgroundResource(R.drawable.shape);
+                distance.setBackgroundColor(Color.TRANSPARENT);
+                distance.setBackgroundResource(R.drawable.shape);
                 if (mMenu.findItem(R.id.today).getTitle().equals("Today"))
                 {
                     filterByAlphabet(resultServices);
@@ -132,7 +133,8 @@ public class ServiceCategoryResult extends Fragment implements View.OnClickListe
                 break;
             case R.id.tv_distance:
                 distance.setBackgroundColor(Color.LTGRAY);
-                //alphabet.setBackgroundResource(R.drawable.shape);
+                alphabet.setBackgroundColor(Color.TRANSPARENT);
+                alphabet.setBackgroundResource(R.drawable.shape);
 
                 if (mMenu.findItem(R.id.today).getTitle().equals("Today"))
                 {
