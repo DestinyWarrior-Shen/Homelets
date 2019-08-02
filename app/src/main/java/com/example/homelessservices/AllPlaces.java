@@ -1,15 +1,19 @@
 package com.example.homelessservices;
 
 import android.graphics.drawable.BitmapDrawable;
+
 import androidx.fragment.app.FragmentTransaction;
+
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -40,20 +44,19 @@ import java.util.HashMap;
 /**
  * This class responsible for displaying all food place on map
  */
-public class AllPlaces extends Fragment implements OnMapReadyCallback
-{
+public class AllPlaces extends Fragment implements OnMapReadyCallback {
     private GoogleMap mGoogleMap;
     private MapView mMapView;
     private View view;
-    private ArrayList<FoodPlace> foodPlaceArrayList,favouriteList;
+    private ArrayList<FoodPlace> foodPlaceArrayList, favouriteList;
     private ArrayList<String> userCommentList;
-    private HashMap<String,FoodPlace> map;
+    private HashMap<String, FoodPlace> map;
     private ClusterManager<FoodPlaceItem> clusterManager;
 
     //cameraPosition
     private final CameraPosition[] mPreviousCameraPosition = {null};
 
-    private static final LatLng MELBOURNE_CITY_CENTER = new LatLng(-37.81303878836988,144.96597290039062);
+    private static final LatLng MELBOURNE_CITY_CENTER = new LatLng(-37.81303878836988, 144.96597290039062);
     private ArrayList<String> selectCheckBoxNameList;
     private String categorySelected;
     private String subCategorySelected;
@@ -64,8 +67,7 @@ public class AllPlaces extends Fragment implements OnMapReadyCallback
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState)
-    {
+                             @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_all_places, container, false);
         getActivity().setTitle("Find Food Service");
         setHasOptionsMenu(true);
@@ -84,8 +86,7 @@ public class AllPlaces extends Fragment implements OnMapReadyCallback
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mMapView = (MapView) view.findViewById(R.id.map_view);
-        if (mMapView != null)
-        {
+        if (mMapView != null) {
             mMapView.onCreate(null);
             mMapView.onResume();
             mMapView.getMapAsync(this);
@@ -110,17 +111,13 @@ public class AllPlaces extends Fragment implements OnMapReadyCallback
         getCurrentLocation();
 
 
-        for (FoodPlace fp : foodPlaceArrayList)
-        {
-            map.put(fp.getName(),fp);
-            try
-            {
+        for (FoodPlace fp : foodPlaceArrayList) {
+            map.put(fp.getName(), fp);
+            try {
                 addItemToCluster(fp);
-            } catch (InvocationTargetException e)
-            {
+            } catch (InvocationTargetException e) {
                 e.printStackTrace();
-            } catch (IllegalAccessException e)
-            {
+            } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
             //clusterManager.addItem(fp);
@@ -128,10 +125,9 @@ public class AllPlaces extends Fragment implements OnMapReadyCallback
 
         clusterManager.setOnClusterClickListener(new ClusterManager.OnClusterClickListener<FoodPlaceItem>() {
             @Override
-            public boolean onClusterClick(final Cluster<FoodPlaceItem> cluster)
-            {
+            public boolean onClusterClick(final Cluster<FoodPlaceItem> cluster) {
                 mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(cluster.getPosition(),
-                        (float)Math.floor(mGoogleMap.getCameraPosition().zoom + 1)), 300, null);
+                        (float) Math.floor(mGoogleMap.getCameraPosition().zoom + 1)), 300, null);
                 return true;
             }
         });
@@ -143,16 +139,15 @@ public class AllPlaces extends Fragment implements OnMapReadyCallback
 
         mGoogleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
-            public void onInfoWindowClick(Marker marker)
-            {
+            public void onInfoWindowClick(Marker marker) {
                 FoodPlace foodPlace = map.get(marker.getTitle());
 
                 PlaceDetails placeDetails = new PlaceDetails();
-                placeDetails.transmitPlaceObjectToPlaceDetailFragment(foodPlace,favouriteList,userCommentList);
+                placeDetails.transmitPlaceObjectToPlaceDetailFragment(foodPlace, favouriteList, userCommentList);
 
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-                ft.replace(R.id.fragment_content,placeDetails);
+                ft.replace(R.id.fragment_content, placeDetails);
                 ft.addToBackStack(null);
                 ft.commit();
             }
@@ -162,13 +157,10 @@ public class AllPlaces extends Fragment implements OnMapReadyCallback
 
     public void getCurrentLocation() {
         if (ContextCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED)
-        {
+                == PackageManager.PERMISSION_GRANTED) {
             mGoogleMap.setMyLocationEnabled(true);
-        }
-        else
-        {
-            getActivity().requestPermissions(new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},12345);
+        } else {
+            getActivity().requestPermissions(new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 12345);
         }
     }
 
@@ -177,23 +169,15 @@ public class AllPlaces extends Fragment implements OnMapReadyCallback
      */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch(requestCode)
-        {
-            case 12345:
-            {
-                if (grantResults.length > 0 && grantResults[0]== PackageManager.PERMISSION_GRANTED)
-                {
-                    try
-                    {
+        switch (requestCode) {
+            case 12345: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    try {
                         mGoogleMap.setMyLocationEnabled(true);
-                    }
-                    catch (SecurityException e)
-                    {
+                    } catch (SecurityException e) {
                         e.printStackTrace();
                     }
-                }
-                else
-                {
+                } else {
                     Toast.makeText(getContext(), "Please grant the permission", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -205,17 +189,15 @@ public class AllPlaces extends Fragment implements OnMapReadyCallback
         mGoogleMap.setOnCameraIdleListener(clusterManager);
         mGoogleMap.setOnInfoWindowClickListener(clusterManager);
         mGoogleMap.setOnMarkerClickListener(clusterManager);
-        clusterManager.setRenderer(new OwnIconRendered(getContext(),mGoogleMap,clusterManager));
+        clusterManager.setRenderer(new OwnIconRendered(getContext(), mGoogleMap, clusterManager));
     }
 
     public void controlCameraMoving() {
         mGoogleMap.setOnCameraIdleListener(new GoogleMap.OnCameraIdleListener() {
             @Override
-            public void onCameraIdle()
-            {
+            public void onCameraIdle() {
                 CameraPosition position = mGoogleMap.getCameraPosition();
-                if(mPreviousCameraPosition[0] == null || mPreviousCameraPosition[0].zoom != position.zoom)
-                {
+                if (mPreviousCameraPosition[0] == null || mPreviousCameraPosition[0].zoom != position.zoom) {
                     mPreviousCameraPosition[0] = mGoogleMap.getCameraPosition();
                     clusterManager.cluster();
                 }
@@ -227,43 +209,38 @@ public class AllPlaces extends Fragment implements OnMapReadyCallback
         this.foodPlaceArrayList = foodPlaceArrayList;
     }
 
-    public void sendFilterConditionToMap(ArrayList<String> selectCheckBoxNameList,String categorySelected,String subCategorySelected) {
+    public void sendFilterConditionToMap(ArrayList<String> selectCheckBoxNameList, String categorySelected, String subCategorySelected) {
         this.selectCheckBoxNameList = selectCheckBoxNameList;
         this.categorySelected = categorySelected;
         this.subCategorySelected = subCategorySelected;
     }
 
     public class OwnIconRendered extends DefaultClusterRenderer<FoodPlaceItem> {
-        public OwnIconRendered(Context context, GoogleMap map, ClusterManager<FoodPlaceItem> clusterManager)
-        {
+        public OwnIconRendered(Context context, GoogleMap map, ClusterManager<FoodPlaceItem> clusterManager) {
             super(context, map, clusterManager);
         }
 
         @Override
-        protected void onBeforeClusterItemRendered(FoodPlaceItem fpi, MarkerOptions markerOptions)
-        {
+        protected void onBeforeClusterItemRendered(FoodPlaceItem fpi, MarkerOptions markerOptions) {
             int height = 70;
             int width = 70;
-            BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.food_marker);
-            Bitmap b=bitmapdraw.getBitmap();
+            BitmapDrawable bitmapdraw = (BitmapDrawable) getResources().getDrawable(R.drawable.food_marker);
+            Bitmap b = bitmapdraw.getBitmap();
             Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
 
             markerOptions.icon(BitmapDescriptorFactory.fromBitmap(smallMarker));
             //markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
             markerOptions.title(fpi.getName());
-            if (fpi.getAddress_2().length() != 0)
-            {
+            if (fpi.getAddress_2().length() != 0) {
                 markerOptions.snippet(fpi.getAddress_2());
-            }
-            else if (fpi.getAddress_1().length() != 0 && fpi.getAddress_2().length() == 0)
-            {
+            } else if (fpi.getAddress_1().length() != 0 && fpi.getAddress_2().length() == 0) {
                 markerOptions.snippet(fpi.getAddress_1());
             }
             super.onBeforeClusterItemRendered(fpi, markerOptions);
         }
+
         @Override
-        protected void onClusterItemRendered(FoodPlaceItem clusterItem, Marker marker)
-        {
+        protected void onClusterItemRendered(FoodPlaceItem clusterItem, Marker marker) {
             super.onClusterItemRendered(clusterItem, marker);
         }
     }
@@ -282,13 +259,12 @@ public class AllPlaces extends Fragment implements OnMapReadyCallback
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_mapToList)
-        {
+        if (id == R.id.action_mapToList) {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ListPlace listPlace = new ListPlace();
-            listPlace.setListToListPlaceFragment(foodPlaceArrayList,false);
-            listPlace.sendFilterCondition(selectCheckBoxNameList,categorySelected,subCategorySelected);
-            ft.replace(R.id.fragment_content,listPlace);
+            listPlace.setListToListPlaceFragment(foodPlaceArrayList, false);
+            listPlace.sendFilterCondition(selectCheckBoxNameList, categorySelected, subCategorySelected);
+            ft.replace(R.id.fragment_content, listPlace);
             ft.addToBackStack(null);
             ft.commit();
             return true;
@@ -301,46 +277,38 @@ public class AllPlaces extends Fragment implements OnMapReadyCallback
         FoodPlaceItem item = new FoodPlaceItem();
         item.addAllAttributesToList();
         item.setPosition(Double.parseDouble(foodPlace.getLatitude()), Double.parseDouble(foodPlace.getLongitude()));
-        updateObjectAttributes(foodPlace,item,clusterManager,item.getAllAttributesToList());
+        updateObjectAttributes(foodPlace, item, clusterManager, item.getAllAttributesToList());
     }
 
     /**
      * Create the food place item object, and update the attribute information.
      */
     public void updateObjectAttributes(FoodPlace foodPlace, FoodPlaceItem foodPlaceItem, ClusterManager<FoodPlaceItem> ClusterList,
-                                       ArrayList<String> attributeList)
-            throws InvocationTargetException, IllegalAccessException {
-        for (int j=0;j<attributeList.size(); j++)
-        {
+                                       ArrayList<String> attributeList) throws InvocationTargetException, IllegalAccessException {
+        for (int j = 0; j < attributeList.size(); j++) {
             String name = attributeList.get(j);
 
-            String attributeValue  = reflectGetMethod(foodPlace,name);
+            String attributeValue = reflectGetMethod(foodPlace, name);
 
             String methodName = "set" + name.toUpperCase().charAt(0) + name.substring(1);
 
-            try
-            {
-                Method method = foodPlaceItem.getClass().getMethod(methodName,String.class);
-                method.invoke(foodPlaceItem,attributeValue);
-            }
-            catch (NoSuchMethodException e)
-            {
+            try {
+                Method method = foodPlaceItem.getClass().getMethod(methodName, String.class);
+                method.invoke(foodPlaceItem, attributeValue);
+            } catch (NoSuchMethodException e) {
                 e.printStackTrace();
             }
         }
         ClusterList.addItem(foodPlaceItem);
     }
 
-    public String reflectGetMethod(FoodPlace fp,String attribute) throws InvocationTargetException, IllegalAccessException {
+    public String reflectGetMethod(FoodPlace fp, String attribute) throws InvocationTargetException, IllegalAccessException {
         String methodName = "get" + attribute.toUpperCase().charAt(0) + attribute.substring(1);
         String tmpResult = "";
-        try
-        {
+        try {
             Method method = fp.getClass().getMethod(methodName);
-            tmpResult = (String)method.invoke(fp);
-        }
-        catch (NoSuchMethodException e)
-        {
+            tmpResult = (String) method.invoke(fp);
+        } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }
         return tmpResult;

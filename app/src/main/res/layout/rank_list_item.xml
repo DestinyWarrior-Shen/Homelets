@@ -7,12 +7,13 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="155dp"
+        android:layout_height="120dp"
         android:layout_marginEnd="2dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="5dp"
         card_view:cardBackgroundColor="@android:color/white"
         card_view:cardCornerRadius="5dp"
+        card_view:cardUseCompatPadding="true"
 
         card_view:layout_constraintLeft_toLeftOf="parent"
         card_view:layout_constraintRight_toRightOf="parent"
@@ -79,7 +80,7 @@
                     android:id="@+id/like_heart"
                     android:layout_width="22dp"
                     android:layout_height="22dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
                     android:clickable="true"
                     android:src="@drawable/heart" />
 

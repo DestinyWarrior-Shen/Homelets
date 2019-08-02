@@ -551,7 +551,7 @@
 
                         <LinearLayout
                             android:id="@+id/abc"
-                            android:layout_width="174dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
@@ -564,65 +564,65 @@
                                 android:textStyle="bold" />
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:layout_width="40dp"
+                                    android:layout_width="80dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="12dp"
+                                    android:layout_marginStart="30dp"
                                     android:layout_marginTop="1dp"
-                                    android:text="Mon:"/>
+                                    android:text="Monday :" />
 
                                 <TextView
                                     android:id="@+id/trading_hour_1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="2dp"
+                                    android:layout_marginStart="10dp"
                                     android:layout_marginTop="1dp"
-                                    android:text="TextView"/>
+                                    android:text="TextView" />
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="20dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:layout_width="40dp"
+                                    android:layout_width="80dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="12dp"
+                                    android:layout_marginStart="30dp"
                                     android:layout_marginTop="1dp"
-                                    android:text="Tue:"/>
+                                    android:text="Tuesday :" />
 
                                 <TextView
                                     android:id="@+id/trading_hour_2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="2dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="1dp"
-                                    android:text="TextView"/>
+                                    android:text="TextView" />
 
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:layout_width="40dp"
+                                    android:layout_width="80dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="12dp"
+                                    android:layout_marginLeft="30dp"
                                     android:layout_marginTop="1dp"
-                                    android:text="Wed:"/>
+                                    android:text="Wednesday:" />
 
                                 <TextView
                                     android:id="@+id/trading_hour_3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="2dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="1dp"
                                     android:text="TextView" />
 
@@ -630,128 +630,112 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="200dp"
-                                android:layout_height="20dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:layout_width="40dp"
+                                    android:layout_width="80dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="12dp"
+                                    android:layout_marginLeft="30dp"
                                     android:layout_marginTop="1dp"
-                                    android:text="Thu:"/>
+                                    android:text="Thursday:" />
 
                                 <TextView
                                     android:id="@+id/trading_hour_4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="2dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="1dp"
-                                    android:text="TextView"/>
+                                    android:text="TextView" />
 
                             </LinearLayout>
-
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/def"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_weight="3">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="12dp"
-                                android:layout_marginTop="3dp"
-                                android:text=""
-                                android:textStyle="bold" />
-
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:layout_width="40dp"
+                                    android:layout_width="80dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="3dp"
-                                    android:text="Fri:"
-                                    android:layout_marginLeft="12dp" />
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="1dp"
+                                    android:text="Friday:" />
 
                                 <TextView
                                     android:id="@+id/trading_hour_5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="3dp"
-                                    android:layout_marginLeft="2dp"
-                                    android:text="TextView"/>
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="1dp"
+                                    android:text="TextView" />
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:layout_width="40dp"
+                                    android:layout_width="80dp"
                                     android:layout_height="wrap_content"
-                                    android:text="Sat:"
-                                    android:layout_marginLeft="12dp"/>
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="1dp"
+                                    android:text="Saturday:" />
 
                                 <TextView
                                     android:id="@+id/trading_hour_6"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="2dp"
-                                    android:text="TextView"/>
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="1dp"
+                                    android:text="TextView" />
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:layout_width="40dp"
+                                    android:layout_width="80dp"
                                     android:layout_height="wrap_content"
-                                    android:text="Sun:"
-                                    android:layout_marginLeft="12dp"/>
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="1dp"
+                                    android:text="Sunday:" />
 
                                 <TextView
                                     android:id="@+id/trading_hour_7"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="2dp"
-                                    android:text="TextView"/>
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="1dp"
+                                    android:text="TextView" />
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="1dp"
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:layout_width="40dp"
+                                    android:layout_width="80dp"
                                     android:layout_height="wrap_content"
-                                    android:text="Pub:"
-                                    android:layout_marginLeft="12dp" />
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="1dp"
+                                    android:text="Pub-Holiday:" />
 
                                 <TextView
                                     android:id="@+id/trading_hour_public"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="2dp"
-                                    android:text="TextView"/>
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="1dp"
+                                    android:text="TextView" />
                             </LinearLayout>
+
+
                         </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="5dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"/>
                     </LinearLayout>
 
                 </LinearLayout>

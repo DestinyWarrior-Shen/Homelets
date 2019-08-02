@@ -54,34 +54,6 @@
                     android:layout_weight="1"/>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/nearest_cardView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginStart="7dp"
-                    android:layout_marginTop="5dp"
-                    card_view:cardBackgroundColor="@android:color/white"
-                    card_view:cardCornerRadius="5dp"
-                    card_view:layout_constraintLeft_toLeftOf="parent"
-                    card_view:layout_constraintRight_toRightOf="parent"
-                    card_view:layout_constraintTop_toTopOf="parent"
-                    card_view:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_weight="1"
-                    android:clickable="true">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Nearest"
-                        android:textAlignment="center"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:clickable="false"
-                        android:background="?attr/colorPrimary"
-                        android:padding="4dp"/>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
                     android:id="@+id/apply_cardView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -102,6 +74,34 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="Apply"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:clickable="false"
+                        android:background="?attr/colorPrimary"
+                        android:padding="4dp"/>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/nearest_cardView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="5dp"
+                    card_view:cardBackgroundColor="@android:color/white"
+                    card_view:cardCornerRadius="5dp"
+                    card_view:layout_constraintLeft_toLeftOf="parent"
+                    card_view:layout_constraintRight_toRightOf="parent"
+                    card_view:layout_constraintTop_toTopOf="parent"
+                    card_view:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_weight="1"
+                    android:clickable="true">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Nearest"
                         android:textAlignment="center"
                         android:textStyle="bold"
                         android:textColor="@color/white"

@@ -13,6 +13,7 @@
         android:layout_marginTop="5dp"
         card_view:cardBackgroundColor="@android:color/white"
         card_view:cardCornerRadius="5dp"
+        card_view:cardUseCompatPadding="true"
 
         card_view:layout_constraintLeft_toLeftOf="parent"
         card_view:layout_constraintRight_toRightOf="parent"
