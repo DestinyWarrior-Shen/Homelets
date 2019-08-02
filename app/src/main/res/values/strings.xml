@@ -38,5 +38,5 @@
     <string name="explain">Normally, the system recommends three food places:\n
         \u2022 First is the nearest and best place\n
         \u2022 Second is the nearest place\n
-        \u2022 Third is the nearest place in your favourite list\nIf results are repeated, the repeated items will not be shown</string>
+        \u2022 Third is the nearest place in your favourite list\nIf results are repeated, the repeated items will not be shown twice</string>
 </resources>

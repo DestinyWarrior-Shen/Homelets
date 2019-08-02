@@ -538,7 +538,7 @@
 
                         <LinearLayout
                             android:id="@+id/abc"
-                            android:layout_width="174dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
@@ -556,60 +556,60 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:layout_width="40dp"
+                                    android:layout_width="80dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="12dp"
+                                    android:layout_marginStart="30dp"
                                     android:layout_marginTop="1dp"
-                                    android:text="Mon:" />
+                                    android:text="Monday :" />
 
                                 <TextView
                                     android:id="@+id/trading_hour_1"
-                                    android:layout_width="110dp"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="2dp"
+                                    android:layout_marginStart="10dp"
                                     android:layout_marginTop="1dp"
                                     android:text="TextView" />
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="20dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:layout_width="40dp"
+                                    android:layout_width="80dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="12dp"
+                                    android:layout_marginStart="30dp"
                                     android:layout_marginTop="1dp"
-                                    android:text="Tue:" />
+                                    android:text="Tuesday :" />
 
                                 <TextView
                                     android:id="@+id/trading_hour_2"
-                                    android:layout_width="110dp"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="2dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="1dp"
                                     android:text="TextView" />
 
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:layout_width="40dp"
+                                    android:layout_width="80dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="12dp"
+                                    android:layout_marginLeft="30dp"
                                     android:layout_marginTop="1dp"
-                                    android:text="Wed:" />
+                                    android:text="Wednesday:" />
 
                                 <TextView
                                     android:id="@+id/trading_hour_3"
-                                    android:layout_width="110dp"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="2dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="1dp"
                                     android:text="TextView" />
 
@@ -617,132 +617,111 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="200dp"
-                                android:layout_height="20dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:layout_width="40dp"
+                                    android:layout_width="80dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="12dp"
+                                    android:layout_marginLeft="30dp"
                                     android:layout_marginTop="1dp"
-                                    android:text="Thu:" />
+                                    android:text="Thursday:" />
 
                                 <TextView
                                     android:id="@+id/trading_hour_4"
-                                    android:layout_width="110dp"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="2dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="1dp"
                                     android:text="TextView" />
 
                             </LinearLayout>
-
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="5dp"
-                            android:layout_height="wrap_content" />
-
-                        <LinearLayout
-                            android:id="@+id/def"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="3dp"
-                            android:layout_weight="3"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="12dp"
-                                android:layout_marginTop="3dp"
-                                android:text=""
-                                android:textStyle="bold" />
-
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:layout_width="40dp"
+                                    android:layout_width="80dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="12dp"
-                                    android:layout_marginTop="3dp"
-                                    android:text="Fri:" />
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="1dp"
+                                    android:text="Friday:" />
 
                                 <TextView
                                     android:id="@+id/trading_hour_5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="2dp"
-                                    android:layout_marginRight="3dp"
-                                    android:layout_marginTop="3dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="1dp"
                                     android:text="TextView" />
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:layout_width="40dp"
+                                    android:layout_width="80dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="12dp"
-                                    android:text="Sat:" />
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="1dp"
+                                    android:text="Saturday:" />
 
                                 <TextView
                                     android:id="@+id/trading_hour_6"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="2dp"
-                                    android:layout_marginRight="3dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="1dp"
                                     android:text="TextView" />
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:layout_width="40dp"
+                                    android:layout_width="80dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="12dp"
-                                    android:text="Sun:" />
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="1dp"
+                                    android:text="Sunday:" />
 
                                 <TextView
                                     android:id="@+id/trading_hour_7"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="2dp"
-                                    android:layout_marginRight="3dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="1dp"
                                     android:text="TextView" />
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="1dp"
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:layout_width="40dp"
+                                    android:layout_width="80dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="12dp"
-                                    android:text="Pub:" />
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="1dp"
+                                    android:text="Pub-Holiday:" />
 
                                 <TextView
                                     android:id="@+id/trading_hour_public"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="2dp"
-                                    android:layout_marginRight="3dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="1dp"
                                     android:text="TextView" />
                             </LinearLayout>
+
+
                         </LinearLayout>
                     </LinearLayout>
 
@@ -978,114 +957,139 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="12dp">
+                        android:layout_marginStart="12dp">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:layout_marginLeft="20dp">
+                            android:layout_marginStart="20dp"
+                            android:id="@+id/StarScale">
 
-                            <RatingBar
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="1dp"
-                                style="?android:attr/ratingBarStyleSmall"
-                                android:numStars="5"
-                                android:rating="5"
-                                android:stepSize="0.5" />
+                                android:orientation="horizontal"
+                                android:id="@+id/StarScale1">
 
-                            <RatingBar
+                                <RatingBar
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_horizontal"
+                                    style="?android:attr/ratingBarStyleSmall"
+                                    android:numStars="5"
+                                    android:rating="5"
+                                    android:stepSize="0.5" />
+
+                                <TextView
+                                    android:id="@+id/tv_5star"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="22"
+                                    android:textAlignment="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="5dp"
-                                style="?android:attr/ratingBarStyleSmall"
-                                android:numStars="5"
-                                android:rating="4"
-                                android:stepSize="0.5" />
+                                android:orientation="horizontal">
 
-                            <RatingBar
+                                <RatingBar
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_horizontal"
+                                    style="?android:attr/ratingBarStyleSmall"
+                                    android:numStars="5"
+                                    android:rating="4"
+                                    android:stepSize="0.5" />
+
+                                <TextView
+                                    android:id="@+id/tv_4star"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:text="14"
+                                    android:textAlignment="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="5dp"
-                                style="?android:attr/ratingBarStyleSmall"
-                                android:numStars="5"
-                                android:rating="3"
-                                android:stepSize="0.5" />
+                                android:orientation="horizontal">
 
-                            <RatingBar
+                                <RatingBar
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_horizontal"
+                                    style="?android:attr/ratingBarStyleSmall"
+                                    android:numStars="5"
+                                    android:rating="3"
+                                    android:stepSize="0.5" />
+
+                                <TextView
+                                    android:id="@+id/tv_3star"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:text="5"
+                                    android:textAlignment="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="5dp"
-                                style="?android:attr/ratingBarStyleSmall"
-                                android:numStars="5"
-                                android:rating="2"
-                                android:stepSize="0.5" />
+                                android:orientation="horizontal">
 
-                            <RatingBar
+                                <RatingBar
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_horizontal"
+                                    style="?android:attr/ratingBarStyleSmall"
+                                    android:numStars="5"
+                                    android:rating="2"
+                                    android:stepSize="0.5" />
+
+                                <TextView
+                                    android:id="@+id/tv_2star"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:text="2"
+                                    android:textAlignment="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="5dp"
-                                style="?android:attr/ratingBarStyleSmall"
-                                android:numStars="5"
-                                android:rating="1"
-                                android:stepSize="0.5" />
-                        </LinearLayout>
+                                android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_marginLeft="20dp">
+                                <RatingBar
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_horizontal"
+                                    style="?android:attr/ratingBarStyleSmall"
+                                    android:numStars="5"
+                                    android:rating="1"
+                                    android:stepSize="0.5" />
 
-                            <TextView
-                                android:id="@+id/tv_5star"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="22"
-                                android:textAlignment="center"
-                                android:textStyle="bold" />
+                                <TextView
+                                    android:id="@+id/tv_1star"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:text="0"
+                                    android:textAlignment="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:textStyle="bold" />
 
-                            <TextView
-                                android:id="@+id/tv_4star"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="1.2dp"
-                                android:text="14"
-                                android:textAlignment="center"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/tv_3star"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="1.4dp"
-                                android:text="5"
-                                android:textAlignment="center"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/tv_2star"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="1.6dp"
-                                android:text="2"
-                                android:textAlignment="center"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/tv_1star"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="1.8dp"
-                                android:text="0"
-                                android:textAlignment="center"
-                                android:textStyle="bold" />
+                            </LinearLayout>
 
                         </LinearLayout>
 
