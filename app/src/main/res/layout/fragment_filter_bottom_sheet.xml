@@ -225,9 +225,11 @@
 
             <Button
                 android:id="@+id/btn_ok"
-                android:layout_width="346dp"
+                android:layout_width="fill_parent"
                 android:layout_height="45dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:background="@color/colorPrimary"
                 android:text="APPLY"
                 android:textColor="@android:color/white"

@@ -66,7 +66,7 @@ public class FilterBottomSheet extends BottomSheetDialogFragment {
 
         Calendar calendar = Calendar.getInstance();
         today = calendar.get(Calendar.DAY_OF_WEEK) - 1;
-        allDaysCheckBoxList.get(today).setText(new SimpleDateFormat("EEEE", Locale.ENGLISH).format(calendar.getTime()) + " (Today)");
+        allDaysCheckBoxList.get(today).setText(new SimpleDateFormat("EEEE", Locale.ENGLISH).format(calendar.getTime()) + "*");
 
         if (categorySelected != null && subCategorySelected != null && selectCheckBoxNameList != null)
         {
@@ -74,11 +74,11 @@ public class FilterBottomSheet extends BottomSheetDialogFragment {
             {
                 if (selectCheckBoxNameList.contains(allDaysCheckBoxList.get(i).getText().toString()))
                     allDaysCheckBoxList.get(i).setChecked(true);
-                else if (selectCheckBoxNameList.contains(allDaysCheckBoxList.get(i).getText().toString() + " (Today)"))
+                else if (selectCheckBoxNameList.contains(allDaysCheckBoxList.get(i).getText().toString() + "*"))
                 {
                     allDaysCheckBoxList.get(i).setChecked(true);
                     String name = allDaysCheckBoxList.get(i).getText().toString();
-                    allDaysCheckBoxList.get(i).setText(name +" (Today)");
+                    allDaysCheckBoxList.get(i).setText(name +"*");
                 }
             }
             categorySpinner.setSelection(categories.indexOf(categorySelected),true);
