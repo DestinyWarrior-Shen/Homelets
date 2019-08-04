@@ -4,11 +4,10 @@ import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
-
-import androidx.annotation.NonNull;
-
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -358,6 +357,7 @@ public class ReadDataFromFireBase {
         {
             currentUserID = mAuth.getCurrentUser().getUid();
             email = mAuth.getCurrentUser().getEmail();
+            userReference.child(currentUserID).addValueEventListener(userReferenceListener);
             if (userReference != null)
             {
                 userReferenceListener = new ValueEventListener() {
@@ -382,7 +382,7 @@ public class ReadDataFromFireBase {
 
                     }
                 };
-                userReference.child(currentUserID).addValueEventListener(userReferenceListener);
+
             }
         }
         return user_name;
