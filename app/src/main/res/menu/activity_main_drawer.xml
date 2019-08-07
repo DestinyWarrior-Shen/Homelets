@@ -14,15 +14,15 @@
         <item
             android:id="@+id/nav_find_places"
             android:icon="@drawable/food"
-            android:title="Find Food Service" />
+            android:title="Find Food Services" />
         <item
             android:id="@+id/nav_find_toilet"
             android:icon="@drawable/toilet"
-            android:title="Find Nearest Toilets" />
+            android:title="Find Nearby Toilets" />
         <item
             android:id="@+id/nav_favourite"
             android:icon="@drawable/favourite"
-            android:title="Favourite Food List" />
+            android:title="Favourite Food" />
         <item
             android:id="@+id/nav_twenty_rank"
             android:icon="@drawable/rank"

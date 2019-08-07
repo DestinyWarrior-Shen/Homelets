@@ -2,41 +2,39 @@ package com.example.homelessservices;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AlertDialog;
-
-import android.view.View;
-import com.google.android.material.navigation.NavigationView;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+
 //import com.google.gson.Gson;
 //import com.google.gson.reflect.TypeToken;
 //import com.google.maps.android.clustering.ClusterManager;
-
-import java.util.ArrayList;
 
 /**
  * Created by Eric on 17/8/17.
@@ -50,10 +48,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private MenuItem profile_menu;
     private FirebaseAuth mAuth;
     private NavigationView navigationView;
-    private String email,currentUserID;
-    private ProgressDialog progressDialog;
     private DrawerLayout drawer;
-
     private ArrayList<Service> serviceList,locationServiceList,virtualServiceList;
     private DatabaseReference foodPlaceRef,locationServiceRef,virtualServiceRef;
 
@@ -86,19 +81,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         View view = navigationView.getHeaderView(0);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         LinearLayout header = (LinearLayout)view.findViewById(R.id.head_id);
         header.setBackgroundColor(getSelectedColor());
 
-        progressDialog = new ProgressDialog(this);
 
         photo = (ImageView) view.findViewById(R.id.imageView);
         photo.setOnClickListener(this);
 
         userName = (TextView) view.findViewById(R.id.tv_user_name);
-        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        //final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         Menu menu = navigationView.getMenu();
         menuItem = (MenuItem) menu.findItem(R.id.nav_account);
         profile_menu = (MenuItem) menu.findItem(R.id.nav_profile);
@@ -107,12 +101,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (mAuth.getCurrentUser() != null)
         {
-            currentUserID = mAuth.getCurrentUser().getUid();
-            email = mAuth.getCurrentUser().getEmail();
             menuItem.setTitle("Logout");
             userName.setText(mAuth.getCurrentUser().getEmail());
             profile_menu.setVisible(true);
-            ReadDataFromFireBase.downloadHeadIconFromFireBase(progressDialog,photo,userName);
+            ReadDataFromFireBase.downloadHeadIconFromFireBase(new ProgressDialog(this),photo,userName);
         }
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
@@ -430,9 +422,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         userName.setText(name);
     }
 
-
-
-
     public void writeServiceToFireBase() {
         for (Service service : locationServiceList)
         {
@@ -504,11 +493,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         }
     }
-
-
-
-
-
 
 
 

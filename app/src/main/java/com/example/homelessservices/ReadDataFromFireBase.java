@@ -257,6 +257,7 @@ public class ReadDataFromFireBase {
 
     public static void downloadHeadIconFromFireBase(final ProgressDialog progressDialog, final ImageView head, final TextView userName) {
         progressDialog.setMessage("Loading...");
+        progressDialog.setCancelable(false);
         progressDialog.show();
         StorageReference mStorageRef = FirebaseStorage.getInstance().getReferenceFromUrl("gs://homelessservices-43603.appspot.com");
         final FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -357,7 +358,6 @@ public class ReadDataFromFireBase {
         {
             currentUserID = mAuth.getCurrentUser().getUid();
             email = mAuth.getCurrentUser().getEmail();
-            userReference.child(currentUserID).addValueEventListener(userReferenceListener);
             if (userReference != null)
             {
                 userReferenceListener = new ValueEventListener() {
@@ -382,7 +382,7 @@ public class ReadDataFromFireBase {
 
                     }
                 };
-
+                userReference.child(currentUserID).addValueEventListener(userReferenceListener);
             }
         }
         return user_name;

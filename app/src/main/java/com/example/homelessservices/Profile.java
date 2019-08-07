@@ -13,13 +13,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.StrictMode;
 import android.provider.MediaStore;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.appcompat.app.AlertDialog;
-
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -34,6 +27,13 @@ import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -57,15 +57,15 @@ import java.util.Iterator;
 import static android.app.Activity.RESULT_OK;
 
 
-public class Profile extends Fragment implements View.OnClickListener,AdapterView.OnItemLongClickListener ,AdapterView.OnItemClickListener{
+public class Profile extends Fragment implements View.OnClickListener, AdapterView.OnItemLongClickListener, AdapterView.OnItemClickListener {
 
-    private TextView current_user,num_reviews,listViewTitle;
-    private ImageView head,img_camera,img_album,edit_name;
+    private TextView current_user, num_reviews, listViewTitle;
+    private ImageView head, img_camera, img_album, edit_name;
     private ListView listView;
-    private ArrayList<String> userCommentList, onePlaceCommentList,tmpList;
-    private ArrayList<FoodPlace> foodPlaces,favouritePlaces;
+    private ArrayList<String> userCommentList, onePlaceCommentList, tmpList;
+    private ArrayList<FoodPlace> foodPlaces, favouritePlaces;
     private ReviewAdapter adapter;
-    private DatabaseReference mDatabaseRootRef,userCommentRef,foodPlaceRef,foodPlaceCommentRef,currentUserNameRef;
+    private DatabaseReference mDatabaseRootRef, userCommentRef, foodPlaceRef, foodPlaceCommentRef, currentUserNameRef;
     private FirebaseAuth mAuth;
     private ValueEventListener foodPlaceListListener;
 
@@ -73,12 +73,14 @@ public class Profile extends Fragment implements View.OnClickListener,AdapterVie
     private final int CAMERA_REQUEST_CODE = 0;
     private final int GALLERY_REQUEST_CODE = 2;
     private final int CROP_REQUEST_CODE = 1;
+    private final int WRITE_EXTERNAL_STORAGE_STOP_AT_CAMERA = 3;
+    private final int WRITE_EXTERNAL_STORAGE_STOP_AT_GALLERY = 4;
 
     private AlertDialog alertDialog;
     private View view;
     private ProgressDialog progressDialog;
     private int pressTimes = 0;
-    private Bitmap bitmapDownload,bitmapFromOtherMediaNew,bitmapFromOtherMediaOld;
+    private Bitmap bitmapDownload, bitmapFromOtherMediaNew;
     private Menu mMenu;
     private String userName;
 
@@ -147,11 +149,10 @@ public class Profile extends Fragment implements View.OnClickListener,AdapterVie
 
     }
 
-    private ArrayList<String> setListOrder(ArrayList<String> userCommentList){
+    private ArrayList<String> setListOrder(ArrayList<String> userCommentList) {
         ArrayList<String> list = new ArrayList<>();
         tmpList = new ArrayList<>();
-        for (int i = userCommentList.size() - 1; i>=0; i--)
-        {
+        for (int i = userCommentList.size() - 1; i >= 0; i--) {
             list.add(userCommentList.get(i));
         }
         return list;
@@ -166,8 +167,7 @@ public class Profile extends Fragment implements View.OnClickListener,AdapterVie
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         View view = getView();
-        if (view != null)
-        {
+        if (view != null) {
             listView.setOnItemLongClickListener(this);
             listView.setOnItemClickListener(this);
         }
@@ -175,8 +175,7 @@ public class Profile extends Fragment implements View.OnClickListener,AdapterVie
 
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.head_image:
                 showUpdatePhotoDialog();
                 break;
@@ -209,17 +208,16 @@ public class Profile extends Fragment implements View.OnClickListener,AdapterVie
                 if (alertDialog != null) {
                     alertDialog.dismiss();
                 }
-                checkCameraPermission();
+                checkRequestStoragePersmission(true);
             }
         });
-
         img_album.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (alertDialog != null) {
                     alertDialog.dismiss();
                 }
-                checkStoragePermission(false);
+                checkRequestStoragePersmission(false);
             }
         });
 
@@ -231,20 +229,18 @@ public class Profile extends Fragment implements View.OnClickListener,AdapterVie
         String[] findPlaceLatitudeArray = userCommentOneRecordArray[1].split("-");
         String longitude = findPlaceLatitudeArray[0];
         FoodPlace foodPlace = new FoodPlace();
-        for (FoodPlace fp : foodPlaces)
-        {
-            if (fp.getLongitude().equals(longitude))
-            {
+        for (FoodPlace fp : foodPlaces) {
+            if (fp.getLongitude().equals(longitude)) {
                 foodPlace = fp;
                 break;
             }
         }
         PlaceDetails placeDetails = new PlaceDetails();
-        placeDetails.transmitPlaceObjectToPlaceDetailFragment(foodPlace,favouritePlaces,userCommentList);
+        placeDetails.transmitPlaceObjectToPlaceDetailFragment(foodPlace, favouritePlaces, userCommentList);
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        ft.replace(R.id.fragment_content,placeDetails);
+        ft.replace(R.id.fragment_content, placeDetails);
         ft.addToBackStack(null);
         ft.commit();
     }
@@ -257,15 +253,14 @@ public class Profile extends Fragment implements View.OnClickListener,AdapterVie
 
         builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i)
-            {
+            public void onClick(DialogInterface dialogInterface, int i) {
                 deleteCommentFromFireBase(position);
                 if (userCommentList.size() == 0)
                     num_reviews.setText("No reviews");
                 else if (userCommentList.size() == 1)
                     num_reviews.setText("1 review");
                 else
-                    num_reviews.setText(userCommentList.size()+" reviews");
+                    num_reviews.setText(userCommentList.size() + " reviews");
                 adapter.notifyDataSetChanged();
                 Toast.makeText(getActivity(), "Comment has been deleted", Toast.LENGTH_SHORT).show();
             }
@@ -291,24 +286,19 @@ public class Profile extends Fragment implements View.OnClickListener,AdapterVie
         final String placeKeyIndex = findPlaceKeyIndexArray[0] + findPlaceKeyIndexArray[1];
 
         foodPlaceRef = mDatabaseRootRef.child("FoodPlaces");
-        if (foodPlaceRef != null)
-        {
+        if (foodPlaceRef != null) {
             foodPlaceListListener = new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren())
-                    {
-                        if (snapshot.getKey().equals(placeKeyIndex))
-                        {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        if (snapshot.getKey().equals(placeKeyIndex)) {
                             onePlaceCommentList.clear();
                             FoodPlace fp = snapshot.getValue(FoodPlace.class);
                             onePlaceCommentList = fp.getReviewList();
-                            for (Iterator<String> iterator = onePlaceCommentList.iterator();iterator.hasNext();)
-                            {
+                            for (Iterator<String> iterator = onePlaceCommentList.iterator(); iterator.hasNext(); ) {
                                 String value = iterator.next();
                                 String[] array = value.split("\\^");
-                                if (array[0].equals(dateAndTime))
-                                {
+                                if (array[0].equals(dateAndTime)) {
                                     iterator.remove();
                                     break;
                                 }
@@ -321,6 +311,7 @@ public class Profile extends Fragment implements View.OnClickListener,AdapterVie
                         }
                     }
                 }
+
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
 
@@ -340,59 +331,53 @@ public class Profile extends Fragment implements View.OnClickListener,AdapterVie
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.profile, menu);
+        super.onCreateOptionsMenu(menu, inflater);
         mMenu = menu;
         mMenu.findItem(R.id.cancel).setVisible(false);
-        super.onCreateOptionsMenu(menu, inflater);
+
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        pressTimes +=1;
-        if (id == R.id.edit)
-        {
-            if (pressTimes % 2 != 0 )
-            {
+        pressTimes += 1;
+        if (id == R.id.edit) {
+            if (pressTimes % 2 != 0) {
                 item.setIcon(R.drawable.ok);
                 mMenu.findItem(R.id.cancel).setVisible(true);
                 edit_name.setVisibility(View.VISIBLE);
                 edit_name.setOnClickListener(this);
+                head.setImageResource(R.drawable.updatephoto);
                 head.setClickable(true);
                 head.setOnClickListener(this);
-                head.setImageResource(R.drawable.updatephoto);
 
-            }
-            else
-            {
+            } else {
                 item.setIcon(R.drawable.edit);
                 head.setClickable(false);
                 edit_name.setVisibility(View.GONE);
-                if (!current_user.getText().toString().equals(userName)) {
+                mMenu.findItem(R.id.cancel).setVisible(false);
+                if (!current_user.getText().toString().equals(userName))
+                {
                     updateUserName(current_user.getText().toString());
                     MainActivity activity = (MainActivity) getActivity();
                     activity.setUserName(current_user.getText().toString());
                 }
 
-                mMenu.findItem(R.id.cancel).setVisible(false);
+                if (bitmapFromOtherMediaNew != null) {
+                    uploadHeadIconToFireBase(bitmapFromOtherMediaNew);
+                    MainActivity activity = (MainActivity) getActivity();
+                    activity.setPhoto(bitmapFromOtherMediaNew);
+                    bitmapDownload = bitmapFromOtherMediaNew;
+                    bitmapFromOtherMediaNew = null;
+                }
                 if (bitmapDownload != null)
                     head.setImageBitmap(bitmapDownload);
                 else
                     head.setImageResource(R.drawable.profile);
-
-                if (bitmapFromOtherMediaNew != null && bitmapFromOtherMediaNew != bitmapFromOtherMediaOld)
-                {
-                    head.setImageBitmap(bitmapFromOtherMediaNew);
-                    uploadHeadIconToFireBase(bitmapFromOtherMediaNew);
-                    bitmapFromOtherMediaOld = bitmapFromOtherMediaNew;
-                    MainActivity activity = (MainActivity) getActivity();
-                    activity.setPhoto(bitmapFromOtherMediaNew);
-                    bitmapDownload = bitmapFromOtherMediaNew;
-                }
             }
             return true;
         }
-        if (id == R.id.cancel)
-        {
+        if (id == R.id.cancel) {
             mMenu.findItem(R.id.cancel).setVisible(false);
             mMenu.findItem(R.id.edit).setIcon(R.drawable.edit);
             current_user.setText(userName);
@@ -406,126 +391,51 @@ public class Profile extends Fragment implements View.OnClickListener,AdapterVie
         return super.onOptionsItemSelected(item);
     }
 
-    private void checkCameraPermission () {
-        int permissionCheck = ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA);
-        if (permissionCheck == PackageManager.PERMISSION_DENIED)
-        {
-            requestCameraPermission();
-        }
-        else
-        {
-            checkStoragePermission(true);
-        }
-    }
-
-    private void checkStoragePermission (boolean flag) {
-        int permissionCheck = ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        if (permissionCheck == PackageManager.PERMISSION_DENIED)
-        {
-            if (!flag)
-                requestStoragePermission(false);
+    private void checkRequestStoragePersmission(boolean finalAtCamera) {
+        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+            if (finalAtCamera)
+                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, WRITE_EXTERNAL_STORAGE_STOP_AT_CAMERA);
             else
-                requestStoragePermission(true);
-        }
+                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, WRITE_EXTERNAL_STORAGE_STOP_AT_GALLERY);
+        } else if (finalAtCamera)
+            cameraOpen();
         else
-        {
-            if (!flag)
-                galleryOpen();
-            else
-                cameraOpen();
-        }
-    }
-
-    private void requestCameraPermission() {
-        if (getActivity().shouldShowRequestPermissionRationale(Manifest.permission.CAMERA))
-        {
-            Toast.makeText(getActivity(),"CAMERA permission allows us to access CAMERA app",Toast.LENGTH_SHORT).show();
-            checkStoragePermission(true);
-        }
-        else
-            requestPermissions(new String[]{Manifest.permission.CAMERA},12);
-    }
-
-    private void requestStoragePermission(boolean flag) {
-        if (getActivity().shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE))
-        {
-            Toast.makeText(getActivity(),"GALLERY permission allows us to access GALLERY app",Toast.LENGTH_SHORT).show();
-            if (!flag)
-                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1234);
-            else
-                cameraOpen();
-        }
-        else
-        {
-            if (!flag)
-                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},123);
-            else
-                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1234);
-        }
+            galleryOpen();
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode)
-        {
-            case 12:
-            {
-                if (permissions[0].equals(Manifest.permission.CAMERA) && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                {
-                    try
-                    {
-                        //head.setOnClickListener(this);
-                        checkStoragePermission(true);
-                    }
-                    catch (SecurityException e)
-                    {
-                        e.printStackTrace();
-                    }
-                }
-                else
-                {
-                    Toast.makeText(getActivity(), "Please grant the permission", Toast.LENGTH_SHORT).show();
-                }
-            }
-            break;
-
-            case 123:
-            {
-                if (permissions[0].equals(Manifest.permission.WRITE_EXTERNAL_STORAGE) && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                {
-                    try
-                    {
-                        //head.setOnClickListener(this);
+        switch (requestCode) {
+            case WRITE_EXTERNAL_STORAGE_STOP_AT_GALLERY: {
+                if (permissions[0].equals(Manifest.permission.WRITE_EXTERNAL_STORAGE) && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    try {
+                        Toast.makeText(getActivity(), "permission is granted", Toast.LENGTH_SHORT).show();
                         galleryOpen();
-                    }
-                    catch (SecurityException e)
-                    {
+                    } catch (SecurityException e) {
                         e.printStackTrace();
                     }
-                }
-                else
-                {
-                    Toast.makeText(getActivity(), "Please grant the permission", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (getActivity().shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE))
+                        Toast.makeText(getActivity(), "Write storage permission is denied", Toast.LENGTH_SHORT).show();
+                    else
+                        Toast.makeText(getActivity(), "You have to manually grant permission from settings", Toast.LENGTH_SHORT).show();
                 }
             }
             break;
 
-            case 1234:
-            {
-                if (permissions[0].equals(Manifest.permission.WRITE_EXTERNAL_STORAGE) && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                {
-                    try
-                    {
+            case WRITE_EXTERNAL_STORAGE_STOP_AT_CAMERA: {
+                if (permissions[0].equals(Manifest.permission.WRITE_EXTERNAL_STORAGE) && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    try {
+                        Toast.makeText(getActivity(), "permission is granted", Toast.LENGTH_SHORT).show();
                         cameraOpen();
-                    }
-                    catch (SecurityException e)
-                    {
+                    } catch (SecurityException e) {
                         e.printStackTrace();
                     }
-                }
-                else
-                {
-                    Toast.makeText(getActivity(), "Please grant the permission", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (getActivity().shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE))
+                        Toast.makeText(getActivity(), "Write storage permission is denied", Toast.LENGTH_SHORT).show();
+                    else
+                        Toast.makeText(getActivity(), "You have to manually grant permission from settings", Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -533,25 +443,18 @@ public class Profile extends Fragment implements View.OnClickListener,AdapterVie
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode,resultCode,data);
-        if (requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK)
-        {
-            if (imageUri != null)
-            {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK) {
+            if (imageUri != null) {
                 cropImage(imageUri);
             }
-        }
-        else if (requestCode == GALLERY_REQUEST_CODE)
-        {
+        } else if (requestCode == GALLERY_REQUEST_CODE) {
             if (data != null) {
                 imageUri = data.getData();
                 cropImage(imageUri);
             }
-        }
-        else if (requestCode == CROP_REQUEST_CODE)
-        {
-            if (imageUri != null)
-            {
+        } else if (requestCode == CROP_REQUEST_CODE) {
+            if (imageUri != null) {
                 bitmapFromOtherMediaNew = decodeUriBitmap(imageUri);
                 head.setImageBitmap(bitmapFromOtherMediaNew);
             }
@@ -561,14 +464,14 @@ public class Profile extends Fragment implements View.OnClickListener,AdapterVie
     private void cameraOpen() {
         imageUri = Uri.fromFile(getImageStoragePath(getContext()));
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT,imageUri);
-        startActivityForResult(intent,CAMERA_REQUEST_CODE);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+        startActivityForResult(intent, CAMERA_REQUEST_CODE);
     }
 
     private void galleryOpen() {
-        Intent intent = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,"image/*");
-        startActivityForResult(Intent.createChooser(intent,"Select Image from Gallery"),GALLERY_REQUEST_CODE);
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+        startActivityForResult(Intent.createChooser(intent, "Select Image from Gallery"), GALLERY_REQUEST_CODE);
     }
 
     private void cropImage(Uri uri) {
@@ -582,8 +485,8 @@ public class Profile extends Fragment implements View.OnClickListener,AdapterVie
         intent.putExtra("aspectY", 1);
 
         // outputX,outputY 是剪裁图片的宽高
-        intent.putExtra("outputX", 100);
-        intent.putExtra("outputY", 100);
+        intent.putExtra("outputX", 1000);
+        intent.putExtra("outputY", 1000);
 
         //设置了true的话直接返回bitmap，可能会很占内存
         intent.putExtra("return-data", false);
@@ -597,9 +500,8 @@ public class Profile extends Fragment implements View.OnClickListener,AdapterVie
     }
 
     private File getImageStoragePath(Context context) {
-        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED))
-        {
-            File file = new File(context.getExternalFilesDir(Environment.DIRECTORY_PICTURES),"temp.jpg");
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+            File file = new File(context.getExternalFilesDir(Environment.DIRECTORY_PICTURES), "temp.jpg");
             return file;
         }
         return null;
@@ -607,12 +509,9 @@ public class Profile extends Fragment implements View.OnClickListener,AdapterVie
 
     private Bitmap decodeUriBitmap(Uri uri) {
         Bitmap bitmap = null;
-        try
-        {
+        try {
             bitmap = BitmapFactory.decodeStream(getActivity().getContentResolver().openInputStream(uri));
-        }
-        catch (FileNotFoundException e)
-        {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
             return null;
         }
@@ -628,40 +527,40 @@ public class Profile extends Fragment implements View.OnClickListener,AdapterVie
 
     private void downloadHeadIconFromFireBase() {
         StorageReference mStorageRef = FirebaseStorage.getInstance().getReferenceFromUrl("gs://homelessservices-43603.appspot.com");
-        final FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        //final FirebaseAuth mAuth = FirebaseAuth.getInstance();
         StorageReference specificRef = mStorageRef.child("Photos/" + mAuth.getCurrentUser().getEmail());
         final long ONE_MEGABYTE = 512 * 512;
         specificRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
             @Override
-            public void onSuccess(byte[] bytes)
-            {
+            public void onSuccess(byte[] bytes) {
                 Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                 bitmapDownload = bitmap;
                 head.setImageBitmap(bitmap);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
-            public void onFailure(@NonNull Exception exception)
-            {
+            public void onFailure(@NonNull Exception exception) {
+//                head.setImageResource(R.drawable.profile);
+//                Toast.makeText(getActivity(), "Path does not exist", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void uploadHeadIconToFireBase(Bitmap bitmap) {
-        Uri uri1 = getImageUri(getContext(),bitmap);
+        Uri uri1 = getImageUri(getContext(), bitmap);
         progressDialog.setMessage("Uploading...");
+        progressDialog.setCancelable(false);
         progressDialog.show();
         StorageReference filePath = FirebaseStorage.getInstance().getReferenceFromUrl("gs://homelessservices-43603.appspot.com").child("Photos").child(mAuth.getCurrentUser().getEmail());
         filePath.putFile(uri1).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(getActivity(),"Upload Done", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Upload Done", Toast.LENGTH_SHORT).show();
                 progressDialog.dismiss();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
-            public void onFailure(@NonNull Exception exception)
-            {
+            public void onFailure(@NonNull Exception exception) {
                 progressDialog.dismiss();
                 Toast.makeText(getActivity(), "Some errors occurs", Toast.LENGTH_SHORT).show();
                 // Handle any errors
@@ -671,25 +570,21 @@ public class Profile extends Fragment implements View.OnClickListener,AdapterVie
 
     private class ReviewAdapter extends BaseAdapter {
         @Override
-        public int getCount()
-        {
+        public int getCount() {
             return tmpList.size();
         }
 
         @Override
-        public String getItem(int position)
-        {
+        public String getItem(int position) {
             return tmpList.get(position);
         }
 
         @Override
-        public long getItemId(int position)
-        {
+        public long getItemId(int position) {
             return position;
         }
 
-        private class ViewHolder
-        {
+        private class ViewHolder {
             TextView DateTime;
             TextView place_name;
             RatingBar ratingBar;
@@ -698,33 +593,28 @@ public class Profile extends Fragment implements View.OnClickListener,AdapterVie
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent)
-        {
+        public View getView(int position, View convertView, ViewGroup parent) {
             ViewHolder holder = new ViewHolder();
-            if (convertView == null)
-            {
-                convertView = View.inflate(getContext(),R.layout.personal_reviews_list_item, null);
+            if (convertView == null) {
+                convertView = View.inflate(getContext(), R.layout.personal_reviews_list_item, null);
                 holder.DateTime = (TextView) convertView.findViewById(R.id.date_time);
                 holder.place_name = (TextView) convertView.findViewById(R.id.place_name);
                 holder.ratingBar = (RatingBar) convertView.findViewById(R.id.ratingBar);
                 holder.mark = (TextView) convertView.findViewById(R.id.mark);
                 holder.comment = (TextView) convertView.findViewById(R.id.comment);
                 convertView.setTag(holder);
-            }
-            else
-            {
+            } else {
                 holder = (ViewHolder) convertView.getTag();
             }
 
-            if (tmpList.size() != 0)
-            {
+            if (tmpList.size() != 0) {
                 String[] array = tmpList.get(position).split("\\^");
 
-                String year = array[0].substring(0,4);
-                String month = array[0].substring(5,7);
-                String date = array[0].substring(8,10);
-                String time = array[0].substring(11).replace("-",":");
-                holder.DateTime.setText(date + "/"+ month + "/" + year + " " + time);
+                String year = array[0].substring(0, 4);
+                String month = array[0].substring(5, 7);
+                String date = array[0].substring(8, 10);
+                String time = array[0].substring(11).replace("-", ":");
+                holder.DateTime.setText(date + "/" + month + "/" + year + " " + time);
                 String[] array1 = array[1].split("-");
                 holder.place_name.setText(array1[1]);
                 holder.ratingBar.setRating(Float.parseFloat(array[2]));
@@ -754,7 +644,7 @@ public class Profile extends Fragment implements View.OnClickListener,AdapterVie
                 current_user.setText(changeName.getText().toString());
             }
         });
-        dl.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+        dl.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int i) {
                 dialog.cancel();
             }
