@@ -6,18 +6,16 @@ import android.annotation.TargetApi;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.annotation.NonNull;
 import android.text.TextUtils;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,10 +24,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 
-public class Register extends Fragment {
+public class Register extends Fragment implements FirebaseAuth.AuthStateListener{
     private Button signUpButton;
     private FirebaseAuth mAuth;
-    private FirebaseAuthListener mAuthListener;
+    //private FirebaseAuthListener mAuthListener;
     private EditText mEmailView,mPasswordView;
     private View progressView,signUpFormView;
 
@@ -41,7 +39,7 @@ public class Register extends Fragment {
         getActivity().setTitle("Sign Up");
 
         mAuth = FirebaseAuth.getInstance();
-        mAuthListener = new FirebaseAuthListener();
+        //mAuthListener = new FirebaseAuthListener();
 
         mEmailView = (EditText) view.findViewById(R.id.signup_email);
         mPasswordView = (EditText) view.findViewById(R.id.signup_password);
@@ -81,7 +79,7 @@ public class Register extends Fragment {
         super.onStart();
 
         if(mAuth != null)
-            mAuth.addAuthStateListener(mAuthListener);
+            mAuth.addAuthStateListener(this);
     }
 
     /**
@@ -92,7 +90,7 @@ public class Register extends Fragment {
         super.onStop();
 
         if(mAuth != null)
-            mAuth.removeAuthStateListener(mAuthListener);
+            mAuth.removeAuthStateListener(this);
     }
 
 
@@ -231,26 +229,43 @@ public class Register extends Fragment {
         }
     }
 
-    /**
-     * Define a class to implement the AuthStateListener interface. Define the state change behaviour
-     * if user has logged in, jumping to Home activity.
-     */
-    private class FirebaseAuthListener implements FirebaseAuth.AuthStateListener {
-        @Override
-        public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth)
-        {
-            FirebaseUser user = firebaseAuth.getCurrentUser();
+    @Override
+    public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth)
+    {
+        FirebaseUser user = firebaseAuth.getCurrentUser();
 
-            if(user != null)
-            {
-                Intent newIntent = new Intent(getActivity(), MainActivity.class);
-                startActivity(newIntent);
-            }
-            else
-            {
-                // User just signed out
-                //Toast.makeText(LoginActivity.this, "Logout successful", Toast.LENGTH_SHORT).show();
-            }
+        if(user != null)
+        {
+            Intent newIntent = new Intent(getActivity(), MainActivity.class);
+            startActivity(newIntent);
+        }
+        else
+        {
+            // User just signed out
+            //Toast.makeText(LoginActivity.this, "Logout successful", Toast.LENGTH_SHORT).show();
         }
     }
+
+//    /**
+//     * Define a class to implement the AuthStateListener interface. Define the state change behaviour
+//     * if user has logged in, jumping to Home activity.
+//     */
+//    private class FirebaseAuthListener implements FirebaseAuth.AuthStateListener {
+//        @Override
+//        public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth)
+//        {
+//            FirebaseUser user = firebaseAuth.getCurrentUser();
+//
+//            if(user != null)
+//            {
+//                Intent newIntent = new Intent(getActivity(), MainActivity.class);
+//                startActivity(newIntent);
+//            }
+//            else
+//            {
+//                // User just signed out
+//                //Toast.makeText(LoginActivity.this, "Logout successful", Toast.LENGTH_SHORT).show();
+//            }
+//        }
+//    }
 }
