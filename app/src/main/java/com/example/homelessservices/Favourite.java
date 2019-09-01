@@ -1,16 +1,11 @@
 package com.example.homelessservices;
 
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationManager;
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.FragmentTransaction;
-import android.content.Context;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +14,12 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ public class Favourite extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState)
     {
         View view = inflater.inflate(R.layout.fragment_favourite, container, false);
-        getActivity().setTitle("Favourite Food List");
+        getActivity().setTitle("Favourite Food");
         textView = (TextView) view.findViewById(R.id.tv_favourite_number);
         time = (TextView) view.findViewById(R.id.tv_time);
         alphabet = (TextView) view.findViewById(R.id.tv_alphabet);

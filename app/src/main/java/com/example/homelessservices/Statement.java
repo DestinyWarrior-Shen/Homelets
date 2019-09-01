@@ -1,13 +1,13 @@
 package com.example.homelessservices;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -36,7 +36,7 @@ public class Statement extends Fragment
                              @Nullable Bundle savedInstanceState)
     {
         View view = inflater.inflate(R.layout.fragment_statements, container, false);
-        getActivity().setTitle("Find Food Service");
+        getActivity().setTitle("Find Food Services");
         foodReference = FirebaseDatabase.getInstance().getReference().child("FoodPlaces");
         todayFoodPlaces = new ArrayList<>();
         readFoodData();
